@@ -39,7 +39,7 @@ before_script:
 - ls $XSD_ROOT
 # install Python Amara
 - pip install --user "python-dateutil==1.5"
-- pip install --user "Amara==1.2.0.2"
+- pip install --egg --user "Amara==1.2.0.2"
 - pip install --user "rdflib==2.4.2"
 - pip install --user lxml
 # install VTK
