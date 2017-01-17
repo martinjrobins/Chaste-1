@@ -26,7 +26,6 @@ addons:
     - libparmetis-dev
     - libhdf5-openmpi-dev
     - libxerces-c-dev
-    - python-4suite-xml
 
 
 before_script:
