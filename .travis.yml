@@ -1,0 +1,56 @@
+sudo: false
+
+dist: trusty
+
+language: cpp
+
+compiler:
+    - gcc
+env:
+    matrix:
+        - CMAKE_BUILD_TYPE=Release
+        - CMAKE_BUILD_TYPE=Debug 
+
+addons:
+  apt:
+    sources:
+        #- boost-latest
+      #- ubuntu-toolchain-r-test
+      # - llvm-toolchain-precise-3.8
+    packages:
+    - libopenmpi-dev
+    - libboost-dev
+    - doxygen
+    - petsc-dev
+    - libsundials-serial
+    - libparmetis-dev
+    - libhdf5-dev
+    - libxerces-c-dev
+
+
+before_script:
+- mkdir bin
+- wget http://www.codesynthesis.com/download/xsd/3.3/linux-gnu/x86_64/xsd-3.3.0-x86_64-linux-gnu.tar.bz2
+- tar -xjf xsd-3.3.0-x86_64-linux-gnu.tar.bz2
+- ln -s xsd-3.3.0-x86_64-linux-gnu/bin/xsd bin/xsd
+- pip install --user "python-dateutil==1.5"
+- easy_install --user "Amara==1.2.0.2"
+- pip install --user "rdflib==2.4.2"
+- pip install --user lxml
+- rm -f xsd-3.3.0-x86_64-linux-gnu.tar.bz2
+- uname -a
+- printenv
+- g++ --version 2>&1 | grep g++
+- gcov --version | grep gcov
+- grep "#define BOOST_VERSION " /usr/include/boost/version.hpp
+- doxygen --version
+
+script:
+- cmake -DChaste_USE_VTK=OFF -DCMAKE_BUILD_TYPE=$CMAKE_BUILD_TYPE .
+- make
+- ctest --output-on-failure
+
+notifications:
+  email:
+    recipients:
+    - martinjrobins@gmail.com
