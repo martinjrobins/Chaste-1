@@ -33,11 +33,11 @@ before_script:
 - wget http://www.codesynthesis.com/download/xsd/3.3/linux-gnu/x86_64/xsd-3.3.0-x86_64-linux-gnu.tar.bz2
 - tar -xjf xsd-3.3.0-x86_64-linux-gnu.tar.bz2
 - ln -s xsd-3.3.0-x86_64-linux-gnu/bin/xsd bin/xsd
-- pip install --user "python-dateutil==1.5"
-- easy_install --user "Amara==1.2.0.2"
-- pip install --user "rdflib==2.4.2"
-- pip install --user lxml
 - rm -f xsd-3.3.0-x86_64-linux-gnu.tar.bz2
+  #- pip install --user "python-dateutil==1.5"
+  #- easy_install --user "Amara==1.2.0.2"
+  #- pip install --user "rdflib==2.4.2"
+  #- pip install --user lxml
 - uname -a
 - printenv
 - g++ --version 2>&1 | grep g++
