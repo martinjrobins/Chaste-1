@@ -43,7 +43,7 @@ before_script:
   #  tar -xvvf 4Suite-XML-1.0.2.tar.bz2
   #  cd 4Suite-XML-1.0.2
   #  ./setup.py install --user
-- pip install --target $HOME/Amara --egg --user "Amara==1.2.0.2"
+- pip install --target $HOME/Amara --egg "Amara==1.2.0.2"
 - pip install --user "rdflib==2.4.2"
 - pip install --user lxml
 # install VTK
