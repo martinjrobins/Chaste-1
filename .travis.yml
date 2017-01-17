@@ -63,8 +63,8 @@ script:
 - cd build
 - cmake -DChaste_USE_VTK=OFF -DCMAKE_BUILD_TYPE=$CMAKE_BUILD_TYPE ..
   #- cmake -DCMAKE_BUILD_TYPE=$CMAKE_BUILD_TYPE ..
-- make
-- ctest --output-on-failure
+- make -j2
+- ctest -j2 --output-on-failure
 
 
 notifications:
