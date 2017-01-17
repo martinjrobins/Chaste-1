@@ -59,7 +59,7 @@ before_script:
 script:
 - mkdir build
 - cd build
-- cmake -DChaste_USE_VTK=OFF -DCMAKE_BUILD_TYPE=$CMAKE_BUILD_TYPE ..
+- XSD_ROOT=$HOME cmake -DChaste_USE_VTK=OFF -DCMAKE_BUILD_TYPE=$CMAKE_BUILD_TYPE ..
 - make
 - ctest --output-on-failure
 
