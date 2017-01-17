@@ -24,7 +24,7 @@ addons:
     - petsc-dev
     - libsundials-serial-dev
     - libparmetis-dev
-    - libhdf5-dev
+    - libhdf5-openmpi-dev
     - libxerces-c-dev
 
 
