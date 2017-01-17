@@ -29,12 +29,14 @@ addons:
 
 
 before_script:
-- mkdir bin
+- mkdir $HOME/bin
 # install XSD
 - wget http://www.codesynthesis.com/download/xsd/3.3/linux-gnu/x86_64/xsd-3.3.0-x86_64-linux-gnu.tar.bz2
 - tar -xjf xsd-3.3.0-x86_64-linux-gnu.tar.bz2
-- ln -s xsd-3.3.0-x86_64-linux-gnu/bin/xsd bin/xsd
+- export set XSD_ROOT=$PWD/xsd-3.3.0-x86_64-linux-gnu
+  #- ln -s xsd-3.3.0-x86_64-linux-gnu/bin/xsd $HOME/bin/xsd
 - rm -f xsd-3.3.0-x86_64-linux-gnu.tar.bz2
+- ls $XSD_ROOT
 # install Python Amara
   #- pip install --user "python-dateutil==1.5"
   #- easy_install --user "Amara==1.2.0.2"
@@ -59,7 +61,7 @@ before_script:
 script:
 - mkdir build
 - cd build
-- XSD_ROOT=$HOME cmake -DChaste_USE_VTK=OFF -DCMAKE_BUILD_TYPE=$CMAKE_BUILD_TYPE ..
+- cmake -DChaste_USE_VTK=OFF -DCMAKE_BUILD_TYPE=$CMAKE_BUILD_TYPE ..
 - make
 - ctest --output-on-failure
 
