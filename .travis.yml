@@ -19,7 +19,7 @@ addons:
       # - llvm-toolchain-precise-3.8
     packages:
     - libopenmpi-dev
-    - libboost-dev
+    - libboost-all-dev
     - doxygen
     - petsc-dev
     - libsundials-serial-dev
