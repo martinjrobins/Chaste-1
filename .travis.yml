@@ -50,6 +50,7 @@ script:
 - make
 - ctest --output-on-failure
 
+
 notifications:
   email:
     recipients:
