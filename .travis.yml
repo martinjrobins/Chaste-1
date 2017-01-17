@@ -30,14 +30,25 @@ addons:
 
 before_script:
 - mkdir bin
+# install XSD
 - wget http://www.codesynthesis.com/download/xsd/3.3/linux-gnu/x86_64/xsd-3.3.0-x86_64-linux-gnu.tar.bz2
 - tar -xjf xsd-3.3.0-x86_64-linux-gnu.tar.bz2
 - ln -s xsd-3.3.0-x86_64-linux-gnu/bin/xsd bin/xsd
 - rm -f xsd-3.3.0-x86_64-linux-gnu.tar.bz2
+# install Python Amara
   #- pip install --user "python-dateutil==1.5"
   #- easy_install --user "Amara==1.2.0.2"
   #- pip install --user "rdflib==2.4.2"
   #- pip install --user lxml
+# install VTK
+#- wget http://www.vtk.org/files/release/5.10/vtk-5.10.1.tar.gz
+#- tar zxf vtk-5.10.1.tar.gz
+#- rm -f vtk-5.10.1.tar.gz
+#- cd VTK5.10.1
+#- cmake -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX=$HOME . 
+#- make
+#- make install
+#- cd ..
 - uname -a
 - printenv
 - g++ --version 2>&1 | grep g++
@@ -46,7 +57,9 @@ before_script:
 - doxygen --version
 
 script:
-- cmake -DChaste_USE_VTK=OFF -DCMAKE_BUILD_TYPE=$CMAKE_BUILD_TYPE .
+- mkdir build
+- cd build
+- cmake -DChaste_USE_VTK=OFF -DCMAKE_BUILD_TYPE=$CMAKE_BUILD_TYPE ..
 - make
 - ctest --output-on-failure
 
