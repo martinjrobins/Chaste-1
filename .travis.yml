@@ -22,7 +22,7 @@ addons:
     - libboost-dev
     - doxygen
     - petsc-dev
-    - libsundials-serial
+    - libsundials-serial-dev
     - libparmetis-dev
     - libhdf5-dev
     - libxerces-c-dev
